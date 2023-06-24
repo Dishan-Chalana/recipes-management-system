@@ -6,10 +6,11 @@ import Navbar from 'react-bootstrap/Navbar';
 function NavBar() {
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar bg="primary" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Navbar.Brand href="#home">Recipes Management System</Navbar.Brand>
                     <Nav className="me-auto">
+                        <Nav.Link href="new">Add Recipe</Nav.Link>
                         <Nav.Link href="#home">Refresh</Nav.Link>
                     </Nav>
                 </Container>
