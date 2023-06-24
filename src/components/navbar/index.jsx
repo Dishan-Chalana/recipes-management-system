@@ -11,7 +11,7 @@ function NavBar() {
                     <Navbar.Brand href="#home">Recipes Management System</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="new">Add Recipe</Nav.Link>
-                        <Nav.Link href="#home">Refresh</Nav.Link>
+                        <Nav.Link href="/">Refresh</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
