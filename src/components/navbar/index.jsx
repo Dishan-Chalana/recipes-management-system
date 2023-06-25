@@ -8,7 +8,7 @@ function NavBar() {
         <>
             <Navbar bg="primary" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Recipes Management System</Navbar.Brand>
+                    <Navbar.Brand>Recipes Management System</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="new">Add Recipe</Nav.Link>
                         <Nav.Link href="/">Refresh</Nav.Link>
