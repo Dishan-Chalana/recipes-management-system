@@ -2,12 +2,16 @@ import Table from "react-bootstrap/Table";
 import "./home.css";
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { selectedRecipeContext } from "../../App";
 
 function Home() {
   const navigate = useNavigate();
 
+  const { selectedRecipe, setSelectedRecipe } = useContext(
+    selectedRecipeContext
+  );
   const [recipeData, setRecipeData] = useState([]);
   const [show, setShow] = useState(false);
   const [del, setDel] = useState();
@@ -43,23 +47,26 @@ function Home() {
           <tr>
             <th>#</th>
             <th>Recipe Name</th>
-            <th>Ingredients</th>
-            <th>Description</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {recipeData.map((recipe, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              onDoubleClick={() => {
+                setSelectedRecipe(recipe);
+                navigate("view");
+              }}
+            >
               <td>{index + 1}</td>
               <td>{recipe.name}</td>
-              <td>{recipe.ingredients}</td>
-              <td>{recipe.description}</td>
               <td>
                 <Button
                   variant="primary"
                   onClick={() => {
-                    navigate(`edit/${recipe._id}`);
+                    setSelectedRecipe(recipe);
+                    navigate(`edit`);
                   }}
                 >
                   Edit

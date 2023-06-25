@@ -1,12 +1,15 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./edit-recipe.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { selectedRecipeContext } from "../../App";
 
 function Edit() {
-  const { recipeId } = useParams();
+    const { selectedRecipe, setSelectedRecipe } = useContext(
+        selectedRecipeContext
+      );
 
   //set form data
   const [recipeData, setRecipeData] = useState({});
@@ -19,7 +22,7 @@ function Edit() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:8000/update/${recipeId}`, recipeData)
+      .put(`http://localhost:8000/update/${selectedRecipe._id}`, recipeData)
       .then((response) => {
         alert(response.data);
       })
